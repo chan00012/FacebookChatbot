@@ -1,0 +1,12 @@
+package com.amdocs.facebookchatbot.enums;
+
+public enum EventType {
+	MESSAGES,
+	MESSAGE_WITH_ATTACHMENTS,
+	REPLY,
+	MESSAGING_POSTBACKS,
+	MESSAGING_OPTINS,
+	MESSAGE_DELIVERIES,
+	MESSAGE_READS,
+	MESSAGE_ECHOES;
+}
