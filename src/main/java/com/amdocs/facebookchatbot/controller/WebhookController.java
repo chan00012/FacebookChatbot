@@ -40,7 +40,7 @@ public class WebhookController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Void> handleCallback(@RequestBody ClientRequest payload,
+	public ResponseEntity<Void> handleCallback(@RequestBody String payload,
 											   @RequestHeader("X-Hub-Signature") String signature){
 		
 		log.info("Received Messenger Platform callback - payload: {} | signature: {}", payload, signature);
@@ -53,20 +53,4 @@ public class WebhookController {
 			return ResponseEntity.status(HttpStatus.OK).build();
 		}
 	}
-	
-//	@PostMapping
-//	public ResponseEntity<Void> handleCallback(@RequestBody String payload,
-//											   @RequestHeader("X-Hub-Signature") String signature){
-//		
-//		log.info("Received Messenger Platform callback - payload: {} | signature: {}", payload, signature);
-//		
-//		try {
-//		return ResponseEntity.status(HttpStatus.OK).build();
-//		} catch(Exception e) {
-//			e.printStackTrace();
-//			return ResponseEntity.status(HttpStatus.OK).build();
-//		}
-//	}
-	
-
 }

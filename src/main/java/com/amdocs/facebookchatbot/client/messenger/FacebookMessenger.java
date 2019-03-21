@@ -156,7 +156,6 @@ public class FacebookMessenger {
 														.build();
 		
 		String request_url = URL_PATH + accessToken;
-		log.info("|POST REQUEST|- payload: {} url:{}", ms,request_url);
 		JsonNode response = restTemplate.postForObject(request_url,ms,JsonNode.class);
 		
 		return response.get("recipient_id").asLong();

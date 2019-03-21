@@ -29,9 +29,9 @@ public class ConversationService {
 	@Autowired
 	FacebookMessenger facebookMessenger;
 		
-	public void replyOnConversation(Event event, EventType eventType) {
+	public void replyOnConversation(Event event) {
 				
-		if(eventType == EventType.MESSAGES) {
+		if(event.getEventType() == EventType.MESSAGES) {
 			
 			try {
 				facebookMessenger.sendSenderAction(event.getSender().getId(), SenderActionType.mark_seen);
@@ -66,7 +66,7 @@ public class ConversationService {
 				}
 		}
 		
-		if(eventType == EventType.MESSAGE_WITH_ATTACHMENTS) {
+		if(event.getEventType() == EventType.MESSAGE_WITH_ATTACHMENTS) {
 			event.getMessage().getAttachments().forEach(attachment -> {
 				facebookMessenger.sendMessageWithAttachment(event.getSender().getId(), attachment);
 				
